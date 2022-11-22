@@ -20,9 +20,13 @@ public class ZeroStarter implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         while (true) {
-            LOG.warn("sendMsg: {}", Math.random() * 100);
+            int timeout = (int) (Math.random() * 5);
+            if (timeout == 0) {
+                timeout = 1;
+            }
+            LOG.warn("timeout: {}", timeout);
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(timeout);
             } catch (InterruptedException e) {
                 LOG.error(e.toString(), e);
             }
