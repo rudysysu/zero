@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="SERVICE_NAME" value="service" />
+    <property name="SERVICE_NAME" value="springboot-zero" />
     <property name="LOG_PATH" value="D:/data/weblog/business/${SERVICE_NAME}" />
     <property name="LOG_PATTERN" value="%date %level [%thread] %logger [%file:%line] %msg%n" />
     <property name="MAX_FILE_SIZE" value="100MB" />
