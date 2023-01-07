@@ -1,1 +1,10 @@
-
+server:
+  port: 8080
+spring:
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://172.29.76.30:3306/springboot_zero?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.github.dy.zero.domain

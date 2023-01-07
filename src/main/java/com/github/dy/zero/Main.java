@@ -1,4 +1,4 @@
-package rudysysu.github.com.zero;
+package com.github.dy.zero;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,11 +10,11 @@ import org.springframework.context.ApplicationListener;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-public class ZeroStarter implements ApplicationListener<ApplicationReadyEvent> {
-    private static final Logger LOG = LoggerFactory.getLogger(ZeroStarter.class);
+public class Main implements ApplicationListener<ApplicationReadyEvent> {
+    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(ZeroStarter.class, args);
+        SpringApplication.run(Main.class, args);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ZeroStarter implements ApplicationListener<ApplicationReadyEvent> {
             if (timeout == 0) {
                 timeout = 1;
             }
-            LOG.warn("timeout: {}", timeout);
+            // LOG.warn("timeout: {}", timeout);
             try {
                 TimeUnit.SECONDS.sleep(timeout);
             } catch (InterruptedException e) {

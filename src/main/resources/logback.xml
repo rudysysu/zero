@@ -80,9 +80,9 @@
 
     <root level="info">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="R_DEBUG" />
-        <appender-ref ref="R_INFO" />
-        <appender-ref ref="R_WARN" />
-        <appender-ref ref="R_ERROR" />
+<!--        <appender-ref ref="R_DEBUG" />-->
+<!--        <appender-ref ref="R_INFO" />-->
+<!--        <appender-ref ref="R_WARN" />-->
+<!--        <appender-ref ref="R_ERROR" />-->
     </root>
 </configuration>
