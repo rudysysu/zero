@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg936\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww35640\viewh19300\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 172.29.160.28\
+rabbitmqctl join_cluster 172.29.160.28:5672\
+\
+\
+docker network create rabbitmqnet\
+\
+docker run -d --name rabbitmq1 -p 5671:5672 -p 15671:15672 -e RABBITMQ_NODENAME=rabbitmq1 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq1 --net=rabbitmqnet rabbitmq:3.10-management\
+docker run -d --name rabbitmq2 -p 5672:5672 -p 15672:15672 -e RABBITMQ_NODENAME=rabbitmq2 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq2 --net=rabbitmqnet rabbitmq:3.10-management\
+docker run -d --name rabbitmq3 -p 5673:5672 -p 15673:15672 -e RABBITMQ_NODENAME=rabbitmq3 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq3 --net=rabbitmqnet rabbitmq:3.10-management\
+\
+\
+rabbitmqctl stop_app\
+rabbitmqctl reset\
+rabbitmqctl join_cluster rabbitmq1@rabbitmq1\
+rabbitmqctl start_app\
+\
+\
+docker pull rabbitmq:3.7.17-management\
+docker run -d --name rabbitmq1 -p 5671:5672 -p 15671:15672 -e RABBITMQ_NODENAME=rabbitmq1 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq1 --net=rabbitmqnet rabbitmq:3.7.17-management\
+docker run -d --name rabbitmq2 -p 5672:5672 -p 15672:15672 -e RABBITMQ_NODENAME=rabbitmq2 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq2 --net=rabbitmqnet rabbitmq:3.7.17-management\
+docker run -d --name rabbitmq3 -p 5673:5672 -p 15673:15672 -e RABBITMQ_NODENAME=rabbitmq3 -e RABBITMQ_ERLANG_COOKIE=WDGWCJEXGNHUHBRUQQDZ -h rabbitmq3 --net=rabbitmqnet rabbitmq:3.7.17-management\
+}

@@ -6,9 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.concurrent.TimeUnit;
 
+@EnableScheduling
 @SpringBootApplication
 public class Main implements ApplicationListener<ApplicationReadyEvent> {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
